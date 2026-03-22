@@ -1,6 +1,7 @@
 require("dotenv").config();
 
 const express = require("express");
+const routes = require("./routes/routes");
 
 const app = express();
 const port = process.env.PORT || 2006;
@@ -8,7 +9,8 @@ const port = process.env.PORT || 2006;
 // Methode : GET , POST  , DELETE , POST , PUT , PATCH
 
 
-// MIDDLEWARES (equibaut a un hook comme en react )typt use,  etc... , veut dire si la chose ne se passe pas tu reste la 
+// MIDDLEWARES (equibaut a un hook comme en react )typt use,  etc... , veut dire si la chose ne se passe pas tu reste la
+app.use("/api", routes) 
 app.use(express.json());
 
 // En express { Callback : S'excute epres une ecoute d'une donner }.

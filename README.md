@@ -16,4 +16,17 @@ L'API sera disponible sur `http://localhost:2006`.
 docker compose -f docker-compose.yml -f docker-compose.dev.yml up --build
 ```
 
+### lampp
+```Demarer lampp server : 
+sudo systemctl stop apache2
+sudo /opt/lampp/lampp start
+
+```Arreter un serveur :
+sudo /opt/lampp/lampp stop
+
+```Verifier un serveur :
+sudo /opt/lampp/lampp status
+
+```
+
 Ce mode monte le code source dans le conteneur et lance `nodemon`.

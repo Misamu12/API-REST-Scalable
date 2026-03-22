@@ -25,8 +25,8 @@ app.post("/new-produit", (req , res)=>{
     const data = req.body;
     res.json({message : 'ok' , data }); 
  
-   } catch(err){
-     console.log(err);
+   } catch(error){
+     console.log(error);
      res.json({message : "une erreur s'est produit"}).status(500)
     
    }

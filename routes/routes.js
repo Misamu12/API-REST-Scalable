@@ -24,8 +24,14 @@ routes.put("/new-user" , async (req , res) => { // async parce que on fait des r
 routes.get("/get-user" , async (req , res) => { // async parce que on fait des routes a l'exterieure
    try{
     // Si tout se passe bien...
-    const data = await axios.get(`${process.env.API_URL}/users`, req.body);
-    res.json(data)
+    const r = await axios.get(`${process.env.API_URL}/users`, req.body);
+
+    if(r?.data) { // verifie si l'utilisateur existe
+      return res.json(r.data);
+    }
+
+
+     return res.json("Aucun utilisateur trouver");
     
    } catch(err){
      console.log("erreur" , err);

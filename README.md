@@ -30,3 +30,10 @@ sudo /opt/lampp/lampp status
 ```
 
 Ce mode monte le code source dans le conteneur et lance `nodemon`.
+
+## API GATEWAY : 
+http://localhost:2006/api/get-user
+
+## API CLIENT : 
+json-server ./db/db.json --port 3000
+

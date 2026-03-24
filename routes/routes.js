@@ -1,57 +1,37 @@
 const express = require("express");
-const axios = require("axios")
+const axios = require("axios");
+const { createNewUser } = require("../controller/newUser.controller");
+const { UserLst } = require("../controller/user.controller");
+const { UserCreate } = require("../controller/createUser.controller");
 // Gestion de route
 const routes = express.Router()
 
 
-// Creer un utilisateur
-routes.put("/new-user" , async (req , res) => { // async parce que on fait des routes a l'exterieure
-   try{
-    // Si tout se passe bien...
-    await axios.put(`${process.env.API_URL}/users`, req.body);
-    res.json({message : "Utilisateur ajouter avec succes !!!"})
-    
-   } catch(err){
-     console.log("erreur" , err);
-     res.json({message : `une erreur s'est produit`})
-
-     
-   }
-})
+routes.put("/mof-user" , UserCreate ); // Creer un utilisateur
+routes.get("/get-user" , UserLst );// Liste de utilisateur 
+routes.post("/new-user" , createNewUser); // Recupere le donner venant de l'utilisateur
 
 
-// Liste de utilisateur 
-routes.get("/get-user" , async (req , res) => { // async parce que on fait des routes a l'exterieure
-   try{
-    // Si tout se passe bien...
-    const r = await axios.get(`${process.env.API_URL}/users`, req.body);
+// Routes Dynamique 
+routes.get("/get-user/:id" , async (req , res) => {
+  // Pour recuperer l'ID ( Parametre )
+ try{
+    const {id} = req.params; /** estructure : const {id} = req.params */
 
-    if(r?.data) { // verifie si l'utilisateur existe
+    // Verifie, Si tout se passe bien...
+    const r = await axios.get(`${process.env.API_URL}/users/${id}`, req.body);
+
+    if(r?.data !== undefined && r?.data !== null) { // verifie si l'utilisateur existe
       return res.json(r.data);
+
     }
-
-
+ 
      return res.json("Aucun utilisateur trouver");
     
    } catch(err){
-     console.log("erreur" , err);
-     res.json({message : `une erreur s'est produit`})
-
-     
-   }
-})
-
-// Recupere envoyer la liste utilisateur
-routes.post("/new-user" , async (req , res) => { // async parce que on fait des routes a l'exterieure
-   try{
-    // Si tout se passe bien...
-    await axios.post(`${process.env.API_URL}/users`, req.body);
-    res.json({message : "Utilisateur ajouter avec succes !!!"})
+     console.log("Bref... Attention" , err);
+     res.json({message : `une erreur s'est produit !`})
     
-   } catch(err){
-     console.log("erreur" , err);
-     res.json({message : `une erreur s'est produit`})
-     
    }
 })
 

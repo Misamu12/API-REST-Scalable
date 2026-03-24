@@ -10,9 +10,8 @@ const port = process.env.PORT || 2006;
 
 
 // MIDDLEWARES (equibaut a un hook comme en react )typt use,  etc... , veut dire si la chose ne se passe pas tu reste la
-app.use("/api", routes) 
 app.use(express.json());
-
+app.use("/api", routes);
 // En express { Callback : S'excute epres une ecoute d'une donner }.
 app.get("/", (req, res) => {
   res.status(200).send("Bienvenue sur notre API Scalable")

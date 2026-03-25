@@ -1,3 +1,5 @@
+const axios = require("axios");
+
 module.exports = CreateUser = {
     UserCreate : async (req , res) => { // async parce que on fait des routes a l'exterieure
    try{

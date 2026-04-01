@@ -31,7 +31,7 @@ app.post("/new-produit", (req , res) => {
  
    } catch(error){
      console.log(error);
-     res.json({message : "une erreur s'est produit"}).status(500)
+     res.json({message : "une erreur s'est produit : " , error }).status(500)
     
    }
  });

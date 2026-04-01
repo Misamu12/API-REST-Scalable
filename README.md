@@ -1,10 +1,6 @@
 # API-REST-Scalable
 
-![api rest]()
-
-## Docker
-
-![docker]()
+![api rest](snapshot/nodejs-logo-svgrepo-com.svg)
 
 ### Production
 
@@ -50,10 +46,19 @@ docker compose -f docker-compose.yml -f docker-compose.dev.yml up --build
 http://localhost:2006/api/get-user
 
 ## API CLIENT : 
+
 `json-server --watch ./db/db.json --port 3000`
 
+### Lancer l'API
+ ---
+ ##### Pour API Gateway
+ > npm run dev
+ ---
+ > json-server --watch ./db/db.json
+ 
+ 
 
-- Faire l'appelau back-end :
+### Faire l'appel au back-end :
 
 ```js   
 

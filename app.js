@@ -15,11 +15,12 @@ app.use(cors({
 app.use(express.json());
 app.use("/api", routes);
 // En express { Callback : S'excute epres une ecoute d'une donner }.
-let nom = "PTXX"
+let nom = process.env.USER_FAKE;
 
 app.get("/", (req, res) => {
   res.json({nom})
 });
+
 
 // Recupere de donneer (Grace a un middleware)
 app.post("/new-produit", (req , res) => {

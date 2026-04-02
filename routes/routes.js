@@ -4,7 +4,7 @@ const { createNewUser } = require("../controller/newUser.controller");
 const { UserLst } = require("../controller/user.controller");
 const { UserModif } = require("../controller/modifUser.controller");
 const getOneUserController = require("../controller/getOneUser.controller");
-const deleteUser = require("../controller/deleteUser");
+const deleteUser = require("../controller/deleteUser.controller");
 
 
 // Gestion de route
